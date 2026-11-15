@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Augusto Lacerda | Engenheiro de Computação, QA & Instrutor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Link para o arquivo CSS separado -->
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body class="bg-grid">
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-content">
+            <a href="#" class="logo"><span>&lt;</span>JoãoLacerda<span>/&gt;</span></a>
+            <ul class="nav-links">
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#habilidades">Stack Técnica</a></li>
+                <li><a href="#formacao">Formação & Certificações</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <button class="btn-print" onclick="window.print()" title="Gerar versão limpa em PDF">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path
+                        d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z" />
+                </svg>
+                Salvar Currículo PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div class="status-badge">
+                    <span class="pulse-dot"></span>
+                    Disponível para contratação imediata (Remoto ou Presencial RO)
+                </div>
+                <h1>João Augusto <span class="highlight">Oliveira Lacerda</span></h1>
+                <p class="hero-subtitle">
+                    <strong>Engenheiro de Computação</strong>, Analista de Qualidade (QA) e Professor/Instrutor de
+                    Tecnologia. Transformo requisitos complexos em software estável, automações eficientes e educação
+                    digital acessível.
+                </p>
+                <div class="hero-meta">
+                    <span>📍 Ji-Paraná / Porto Velho - RO</span>
+                    <span>🎓 Eng. Computação (2026)</span>
+                    <span>🚗 CNH A/B</span>
+                   
+                </div>
+                <div class="hero-actions">
+                    <a href="https://wa.me/5569993916168?text=Ol%C3%A1%20Jo%C3%A3o!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade."
+                        target="_blank" class="btn-primary">
+                        Chamar no WhatsApp
+                    </a>
+                    <button class="btn-secondary" onclick="copyEmail()">
+                        Copiar E-mail
+                    </button>
+                    <a href="https://www.linkedin.com/in/joao-lacerda-57160a192" target="_blank" class="btn-secondary">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive CLI Terminal -->
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="terminal-title">joao@lacerda-portfolio: ~ (bash)</div>
+                </div>
+                <div class="terminal-body" id="terminal-output">
+                    <div class="terminal-line">Bem-vindo ao terminal interativo de <strong>João Augusto
+                            Lacerda</strong>.</div>
+                    <div class="terminal-line">Digite um comando abaixo ou clique nos atalhos para inspecionar meu
+                        perfil:</div>
+                    <div class="terminal-line" style="color: #64748b;">Ex: help, sobre, stack, qa, idep, contato, clear
+                    </div>
+                </div>
+                <div class="terminal-input-container">
+                    <div class="terminal-input-row">
+                        <span class="prompt">recrutador@rh:~$</span>
+                        <input type="text" id="terminal-input" placeholder="Digite 'help' e pressione Enter..."
+                            autocomplete="off">
+                    </div>
+                </div>
+                <div class="terminal-hints">
+                    <span class="hint-chip" onclick="runCmd('sobre')">sobre</span>
+                    <span class="hint-chip" onclick="runCmd('stack')">stack</span>
+                    <span class="hint-chip" onclick="runCmd('qa')">qa</span>
+                    <span class="hint-chip" onclick="runCmd('idep')">idep</span>
+                    <span class="hint-chip" onclick="runCmd('contato')">contato</span>
+                    <span class="hint-chip" onclick="runCmd('clear')">clear</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruiter Role Lens Filter -->
+    <div class="container filter-section">
+        <div class="filter-box">
+            <div class="filter-header">
+                <h2>🎯 Lente do Recrutador</h2>
+                <span>Selecione a área da sua vaga para destacar as competências aderentes:</span>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Visão Geral (Full Profile)</button>
+                <button class="filter-btn" data-filter="dev">Desenvolvimento Web & IA</button>
+                <button class="filter-btn" data-filter="qa">Qualidade de Software (QA)</button>
+                <button class="filter-btn" data-filter="infra">Infraestrutura, Redes & Campo</button>
+                <button class="filter-btn" data-filter="edu">Docência, Dados & Administrativo</button>
+            </div>
+            <div class="dynamic-pitch" id="dynamic-pitch">
+                <strong>Perfil Multidisciplinar:</strong> Combino base sólida em Engenharia de Computação com
+                experiência corporativa em QA (Compass UOL), docência técnica (IDEP / C.E.J.O.) e certificação em
+                Hardware, Redes e Normas de Segurança (NR-10/NR-35).
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section id="experiencia">
+        <div class="container">
+            <h2 class="section-title">Experiência Profissional</h2>
+            <p class="section-desc">Trajetória combinando atuação corporativa em tecnologia, docência técnica e gestão
+                empreendedora.</p>
+
+            <div class="timeline">
+                <!-- IDEP -->
+                <div class="exp-card" data-tags="edu infra dev">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-role">Professor / Instrutor de Informática Aplicada</div>
+                            <div class="exp-company">IDEP – Instituto Estadual de Desenvolvimento da Educação
+                                Profissional</div>
+                        </div>
+                        <span class="exp-date">Nov 2026 – Presente</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Planejamento e ministração de aulas práticas e teóricas no curso de Informática Aplicada
+                            (40h), acompanhando o desempenho dos alunos em sala e em plataforma digital.</li>
+                        <li>Ensino estruturado de arquitetura de hardware (processadores, memórias, armazenamento,
+                            placas-mãe, Arduino), segurança digital (prevenção contra malwares) e ferramentas
+                            corporativas (Word, Excel e análise gráfica).</li>
+                        <li>Elaboração de materiais didáticos, slides, exercícios práticos e avaliações orientadas à
+                            capacitação profissional.</li>
+                    </ul>
+                    <div class="tags-row">
+                        <span class="tag">Docência Técnica</span>
+                        <span class="tag">Hardware & Arduino</span>
+                        <span class="tag">Segurança Digital</span>
+                        <span class="tag">Pacote Office / Excel</span>
+                    </div>
+                </div>
+
+                <!-- Compass UOL -->
+                <div class="exp-card" data-tags="qa dev">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-role">Desenvolvedor de Automação de Testes e Validação (QA)</div>
+                            <div class="exp-company">Compass UOL</div>
+                        </div>
+                        <span class="exp-date">2024</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Planejamento, execução e documentação de testes funcionais, exploratórios e automatizados
+                            estruturados com <strong>JUnit</strong>, garantindo a estabilidade de aplicações web
+                            corporativas.</li>
+                        <li>Validação de regras de negócio por meio de testes e consumo de <strong>APIs REST</strong>
+                            utilizando Postman.</li>
+                        <li>Execução de <strong>Smoke Tests</strong> para validação rápida pós-deploy e testes de
+                            regressão abrangentes.</li>
+                        <li>Registro, rastreamento e gestão do ciclo de vida de defeitos via <strong>Jira</strong> em
+                            times ágeis (Scrum e Kanban), apoiando o refinamento de Histórias de Usuário.</li>
+                    </ul>
+                    <div class="tags-row">
+                        <span class="tag">QA & Automação</span>
+                        <span class="tag">JUnit</span>
+                        <span class="tag">Postman / APIs REST</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">Scrum / Kanban</span>
+                        <span class="tag">Smoke Tests</span>
+                    </div>
+                </div>
+
+                <!-- CEJO -->
+                <div class="exp-card" data-tags="edu dev infra">
+                    <div class="exp-top">
+                        <div>
+                            <div class="exp-role">Proprietário e Instrutor de Tecnologia</div>
+                            <div class="exp-company">Centro Educacional João Oliveira (C.E.J.O.)</div>
+                        </div>
+                        <span class="exp-date">Nov 2020 – Presente</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Gestão administrativa, financeira e pedagógica da instituição, com atendimento direto ao
+                            público e resolução ágil de demandas.</li>
+                        <li>Ministração de cursos profissionalizantes com foco em lógica de programação (Portugol),
+                            algoritmos, Excel Avançado (Dashboards, Power Query e VBA) e informática.</li>
+                        <li>Implantação, manutenção preventiva de computadores, redes locais e desenvolvimento de
+                            soluções web para gestão e e-commerce.</li>
+                    </ul>
+                    <div class="tags-row">
+                        <span class="tag">Gestão & Atendimento</span>
+                        <span class="tag">Lógica de Programação</span>
+                        <span class="tag">Excel Avançado & VBA</span>
+                        <span class="tag">Manutenção & Redes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projetos" class="section-alt">
+        <div class="container">
+            <h2 class="section-title">Projetos em Destaque</h2>
+            <p class="section-desc">Aplicações práticas desenvolvidas unindo Engenharia de Software, Inteligência
+                Artificial, Web e Automação.</p>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-tags="dev">
+                    <div>
+                        <div class="project-category">Inteligência Artificial & Python</div>
+                        <h3 class="project-title">Diagnóstico de Pneumonia por Raio-X</h3>
+                        <p class="project-desc">Sistema de Visão Computacional utilizando Deep Learning e Redes Neurais
+                            Convolucionais (CNNs) para classificação automatizada de imagens médicas.</p>
+                        <div class="tags-row">
+                            <span class="tag">Python</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">CNNs</span>
+                        </div>
+                    </div>
+                    <button class="btn-details" onclick="openModal('pneumonia')">Ver Arquitetura e Detalhes</button>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-tags="dev">
+                    <div>
+                        <div class="project-category">Web 3D & Gráficos</div>
+                        <h3 class="project-title">Dark Maze – Labirinto 3D WebGL</h3>
+                        <p class="project-desc">Jogo interativo em primeira pessoa executado diretamente no navegador,
+                            utilizando renderização em tempo real, iluminação dinâmica e lógica de Raycasting.</p>
+                        <div class="tags-row">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Three.js</span>
+                            <span class="tag">WebGL</span>
+                        </div>
+                    </div>
+                    <button class="btn-details" onclick="openModal('darkmaze')">Ver Arquitetura e Detalhes</button>
+                </div>
+
+               
+                <!-- Project 3 -->
+                <div class="project-card" data-tags="qa dev edu">
+                    <div>
+                        <div class="project-category">Automação & Dados</div>
+                        <h3 class="project-title">Sanitizador de Dados & Macros Corporativas</h3>
+                        <p class="project-desc">Scripts em Python para validação rigorosa de inputs primitivos e
+                            planilhas automatizadas em Excel/VBA com Power Query para indicadores de desempenho.</p>
+                        <div class="tags-row">
+                            <span class="tag">Python</span>
+                            <span class="tag">Excel VBA</span>
+                            <span class="tag">Power Query</span>
+                        </div>
+                    </div>
+                    <button class="btn-details" onclick="openModal('automacao')">Ver Arquitetura e Detalhes</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="habilidades">
+        <div class="container">
+            <h2 class="section-title">Stack Técnica & Competências</h2>
+            <p class="section-desc">Ferramentas, linguagens e metodologias aplicadas no dia a dia.</p>
+
+            <div class="skills-grid">
+                <div class="skill-group" data-tags="dev">
+                    <h3>💻 Desenvolvimento & Dados</h3>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">Java</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">C# / C / C++</span>
+                        <span class="skill-pill">PHP</span>
+                        <span class="skill-pill">HTML5 & CSS3</span>
+                        <span class="skill-pill">SQL / MySQL</span>
+                        <span class="skill-pill">Clean Code & SOLID</span>
+                        <span class="skill-pill">Git / GitHub</span>
+                    </div>
+                </div>
+
+                <div class="skill-group" data-tags="qa dev">
+                    <h3>🧪 Qualidade de Software (QA)</h3>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Testes Automatizados</span>
+                        <span class="skill-pill">JUnit</span>
+                        <span class="skill-pill">Postman (APIs REST)</span>
+                        <span class="skill-pill">Jira</span>
+                        <span class="skill-pill">Smoke Tests</span>
+                        <span class="skill-pill">Testes de Regressão</span>
+                        <span class="skill-pill">Scrum & Kanban</span>
+                        <span class="skill-pill">IA aplicada a QA</span>
+                    </div>
+                </div>
+
+                <div class="skill-group" data-tags="infra">
+                    <h3>🌐 Infraestrutura, Redes & Segurança</h3>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Redes TCP/IP & DHCP</span>
+                        <span class="skill-pill">Roteadores & Cabeamento</span>
+                        <span class="skill-pill">Linux (Ubuntu / Kali)</span>
+                        <span class="skill-pill">Windows Server/Client</span>
+                        <span class="skill-pill">Wireshark & Nmap</span>
+                        <span class="skill-pill">AWS (Cloud Básico)</span>
+                        <span class="skill-pill">Hardware & Arduino</span>
+                        
+                    </div>
+                </div>
+
+                <div class="skill-group" data-tags="edu">
+                    <h3>📊 Gestão, Docência & Produtividade</h3>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Didática Tecnológica</span>
+                        <span class="skill-pill">Excel Avançado</span>
+                        <span class="skill-pill">Macros VBA</span>
+                        <span class="skill-pill">Power Query & Dashboards</span>
+                        <span class="skill-pill">Pacote Office & Google</span>
+                        <span class="skill-pill">Atendimento ao Cliente</span>
+                        <span class="skill-pill">Gestão de Processos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="formacao" class="section-alt-top">
+        <div class="container">
+            <h2 class="section-title">Formação & Certificações</h2>
+            <p class="section-desc">Base acadêmica.</p>
+
+            <div class="edu-cert-grid">
+                <!-- Education Column -->
+                <div>
+                    <h3 class="col-subtitle">Formação Acadêmica</h3>
+
+                    <div class="edu-card">
+                        <span class="edu-status status-done">CONCLUÍDO – FEV / 2026</span>
+                        <h4 class="edu-title">Bacharelado em Engenharia de Computação</h4>
+                        <p class="edu-inst">Centro Universitário Internacional UNINTER</p>
+                    </div>
+                </div>
+
+                <!-- Certifications Column -->
+                <div>
+                    <h3 class="col-subtitle">Certificações & Normas Técnicas</h3>
+                    <div class="cert-list">
+                        <div class="cert-item" data-tags="qa dev">
+                            <div>
+                                <div class="cert-name">AWS for Software Quality & Test Automation</div>
+                                <div class="cert-org">Compass UOL (2024)</div>
+                            </div>
+                            <span class="cert-hours">400h</span>
+                        </div>
+
+                        <div class="cert-item" data-tags="infra dev">
+                            <div>
+                                <div class="cert-name">Cibersegurança Fundamental & Especialização Blue Team</div>
+                                <div class="cert-org">Hackers do Bem (2024–2026)</div>
+                            </div>
+                            <span class="cert-hours">176h</span>
+                        </div>
+
+                        <div class="cert-item" data-tags="infra">
+                            <div>
+                                <div class="cert-name">Analista de Hardware e Redes</div>
+                                <div class="cert-org">Microlins</div>
+                            </div>
+                            <span class="cert-hours">70h</span>
+                        </div>
+
+                        <div class="cert-item" data-tags="infra">
+                            <div>
+                                <div class="cert-name">Introdução à Cibersegurança</div>
+                                <div class="cert-org">Cisco Networking Academy (2026)</div>
+                            </div>
+                            <span class="cert-hours">Certificado</span>
+                        </div>
+
+                        <div class="cert-item" data-tags="edu dev">
+                            <div>
+                                <div class="cert-name">BI com Excel: Dashboard com Power Query</div>
+                                <div class="cert-org">Alura</div>
+                            </div>
+                            <span class="cert-hours">Certificado</span>
+                        </div>
+
+                        <div class="cert-item" data-tags="infra">
+                            <div>
+                                <div class="cert-name">NR-10 Básico, NR-10 SEP & NR-35 Trabalho em Altura</div>
+                                <div class="cert-org">Prime Cursos do Brasil (Segurança Elétrica e Campo)</div>
+                            </div>
+                            <span class="cert-hours">88h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Footer -->
+    <footer id="contato">
+        <div class="container">
+            <div class="contact-box">
+                <div>
+                    <h2 class="footer-heading">Vamos conversar sobre a sua equipe?</h2>
+                    <p class="footer-sub">Pronto para contribuir em projetos remotos ou presenciais em Rondônia.</p>
+                </div>
+                <div class="contact-actions">
+                    <a href="https://wa.me/5569993916168" target="_blank" class="btn-primary">WhatsApp: (69)
+                        99391-6168</a>
+                    <button class="btn-secondary" onclick="copyEmail()">lacerdajoao@proton.me</button>
+                    <a href="https://www.linkedin.com/in/joao-lacerda-57160a192" target="_blank"
+                        class="btn-secondary">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 João Augusto Oliveira Lacerda. Todos os direitos reservados.</span>
+                <span>Ji-Paraná / Porto Velho – Rondônia, Brasil</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div class="modal-overlay" id="project-modal" onclick="closeModalOnBg(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div id="modal-category" class="project-category"></div>
+            <h3 id="modal-title" class="modal-title-text"></h3>
+            <p id="modal-body" class="modal-body-text"></p>
+            <div id="modal-highlights" class="modal-highlights-box"></div>
+        </div>
+    </div>
+
+    <!-- Copy Toast -->
+    <div class="copy-toast" id="copy-toast">E-mail lacerdajoao@proton.me copiado!</div>
+
+    <!-- Link para o arquivo JavaScript separado -->
+    <script src="Script.js"></script>
+</body>
+
+</html>
